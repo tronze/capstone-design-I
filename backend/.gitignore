@@ -16,3 +16,6 @@ __pycache__/
 
 .tox
 .coverage
+
+# Custom files to ignore
+secret_key.txt
