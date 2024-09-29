@@ -1,8 +1,7 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Capstone Design I
+## How To Start
+### Install dependencies
+시작에 앞서 Windows Powershell 또는 Bash 창에서 해당 프로젝트 폴더에 잘 들어왔는지 체크한다.
+```shell
+yarn install
+```
