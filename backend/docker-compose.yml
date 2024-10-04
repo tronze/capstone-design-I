@@ -1,0 +1,23 @@
+# Backend Deploy
+
+version: '3'
+services:
+  # Nginx
+  nginx:
+    image: wingit_backend_nginx:v0.0.1
+    build:
+      context: ./nginx/
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on: # Service Dependencies (Container init order)
+      - web
+    hostname: WingItNginx
+
+  # Django Application
+  web:
+    image: wingit_backend_app:v0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: WingItApp
