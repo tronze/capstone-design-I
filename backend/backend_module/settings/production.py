@@ -17,4 +17,4 @@ DATABASES['default'] = {
     'PORT': os.environ['DB_PORT'],
 }
 
-WSGI_APPLICATION = 'qube_backend.wsgi.production.application'
+WSGI_APPLICATION = 'backend_module.wsgi.production.application'
