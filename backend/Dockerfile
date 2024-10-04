@@ -1,4 +1,4 @@
-# <django_project>/Dockerfile-dev
+# WingIt Application
 FROM python:3.11
 
 RUN mkdir /code
