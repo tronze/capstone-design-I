@@ -6,12 +6,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from .manager import UserManager
 
-# Create your models here.
-
-
 class User(AbstractBaseUser, PermissionsMixin):
     uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
-    key = models.CharField(max_length=255, unique=True, db_index=True)
     email = models.EmailField(db_index=True, unique=True)
     name = models.CharField(max_length=100)
     is_staff = models.BooleanField(
