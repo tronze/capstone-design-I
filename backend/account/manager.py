@@ -1,18 +1,15 @@
 from django.contrib.auth.base_user import BaseUserManager
 
-
-# Create your manager here.
-
-
 class UserManager(BaseUserManager):
 
-    def create_user(self, email, name, password=None):
+    def create_user(self, email, name, role, password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
         user = self.model(
             email=self.normalize_email(email),
             name=name,
+            role=role,
         )
 
         user.set_password(password)
@@ -25,6 +22,7 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             password=password,
             name=name,
+            role=None,
         )
         user.is_superuser = True
         user.is_staff = True

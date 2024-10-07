@@ -10,6 +10,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
     email = models.EmailField(db_index=True, unique=True)
     name = models.CharField(max_length=100)
+    ROLE_CHOICES = [
+        ('선생님', '선생님'),
+        ('학생', '학생'),
+    ]
+    role = models.CharField(max_length=4, choices=ROLE_CHOICES, null=True, default='student')
+    institution = models.CharField(max_length=100, null=True)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,

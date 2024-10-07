@@ -20,6 +20,8 @@ class RegisterView(generics.CreateAPIView):
             "user": {
                 "email": user.email,
                 "name": user.name,
+                "role": user.role,
+                "institution": user.institution,
             },
             "token": {
                 "access": str(token.access_token),
