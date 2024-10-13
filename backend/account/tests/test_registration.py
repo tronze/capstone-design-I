@@ -93,5 +93,4 @@ class UserRegisterTestCase(APITestCase):
         data = self.create_user_data()
         data["user_type"] = "아뇨 뚱인데요"
         response = self.client.post(self.url, data=data, format='json')
-        print(response.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
