@@ -45,6 +45,7 @@ class UserRegisterTestCase(APITestCase):
             "email": existing_user['email'],
             "name": "name",
             "password": "dkssud!!",
+            "password2": "dkssud!!",
             "user_type": "학생",
             "school": "서강고", 
             "grade": "고3"
