@@ -34,7 +34,7 @@ class UserSerializer(serializers.ModelSerializer):
 class TeacherSerializer(UserSerializer):
     email = serializers.EmailField(required=True)
     subject = serializers.CharField(required=True)
-    institution = serializers.CharField(required=True)
+    institution = serializers.CharField(required=True, allow_blank=True)
 
     class Meta(UserSerializer.Meta):
         model = Teacher
@@ -53,7 +53,7 @@ class TeacherSerializer(UserSerializer):
 
 class StudentSerializer(UserSerializer):
     email = serializers.EmailField(required=True)
-    school = serializers.CharField(required=True)
+    school = serializers.CharField(required=True, allow_blank=True)
     grade = serializers.CharField(required=True)
 
     class Meta(UserSerializer.Meta):
