@@ -53,7 +53,7 @@ class Teacher(User):
         ('과학', '과학'),
         ('기타', '기타')
     ]
-    subject = models.CharField(max_length=2, choices=SUBJECT_CHOICE)
+    subject = models.CharField(max_length=2, choices=SUBJECT_CHOICES, null=False)
 
 class Student(User):
     school = models.CharField(max_length=100, null=True)
@@ -72,4 +72,4 @@ class Student(User):
         ('고3', '고등학교 3학년'),
         ('기타', '기타')
     ]
-    grade = models.CharField(max_length=2, choices=GRADE_CHOICES)
+    grade = models.CharField(max_length=2, choices=GRADE_CHOICES, null=False)
