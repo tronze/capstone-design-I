@@ -89,6 +89,12 @@ class UserRegisterTestCase(APITestCase):
         response = self.client.post(self.url, data=data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
+    def test_register_with_unselected_user_type(self):
+        data = self.create_user_data()
+        data["user_type"] = None
+        response = self.client.post(self.url, data=data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
     def test_register_with_invalid_user_type(self):
         data = self.create_user_data()
         data["user_type"] = "아뇨 뚱인데요"
