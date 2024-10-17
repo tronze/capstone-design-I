@@ -38,6 +38,11 @@ class UserRegisterTestCase(APITestCase):
         response = self.client.post(self.url, data=data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
+    def test_register_with_missing_email(self):
+        data = self.create_user_data(email="")
+        response = self.client.post(self.url, data=data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
     def test_register_with_duplicate_email(self):
         existing_user = self.create_user_data()
         self.client.post(self.url, data=existing_user, format='json')
@@ -70,11 +75,6 @@ class UserRegisterTestCase(APITestCase):
 
     def test_register_with_mismatched_passwords(self):
         data = self.create_user_data(password="dkssud!!", password2="dkssyd!!")
-        response = self.client.post(self.url, data=data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-    def test_register_with_missing_required_fields(self):
-        data = self.create_user_data(name="", email="")
         response = self.client.post(self.url, data=data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
