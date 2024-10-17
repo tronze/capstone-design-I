@@ -45,7 +45,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Teacher(User):
     institution = models.CharField(max_length=100, null=True)
-    SUBJECT_CHOICE = [
+    SUBJECT_CHOICES = [
         ('국어', '국어'),
         ('수학', '수학'),
         ('영어', '영어'),
